@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const user = require('./src/routes/userRoutes');
 const job = require('./src/routes/jobRoutes');
 const status = require('./src/routes/statusRoutes');
+const action = require('./src/routes/actionRoutes');
 require('dotenv').config();
 
 const app = express();
@@ -42,6 +43,7 @@ app.use(morgan('combined'));
 app.use('/api/v1', user);
 app.use('/api/v1', job);
 app.use('/api/v1', status);
+app.use('/api/v1', action);
 
 app.get('/', (req,res)=>{
     res.send('Server running on port '+PORT)

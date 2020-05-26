@@ -15,5 +15,17 @@ module.exports = {
                 res.json(job)
             }
         })
+    },
+
+    getStatus: function(req, res, next){
+
+        Status.find({jobNo:req.params.jobNo}, (err, status)=>{
+
+            if(err){
+                next(err)
+            }else{
+                res.json(status)
+            }
+        })
     }
 }

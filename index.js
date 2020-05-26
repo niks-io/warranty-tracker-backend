@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 var morgan = require('morgan');
 const jwt = require('jsonwebtoken');
 const user = require('./src/routes/userRoutes');
+const job = require('./src/routes/jobRoutes');
 require('dotenv').config();
 
 const app = express();
@@ -38,6 +39,7 @@ app.use(morgan('combined'));
 
 // public routes
 app.use('/api/v1', user);
+app.use('/api/v1', job)
 
 app.get('/', (req,res)=>{
     res.send('Server running on port '+PORT)
